@@ -1,31 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_convert_p.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 16:32:14 by aliens            #+#    #+#             */
-/*   Updated: 2020/11/26 16:51:02 by aliens           ###   ########.fr       */
+/*   Created: 2020/12/02 13:39:26 by aliens            #+#    #+#             */
+/*   Updated: 2020/12/02 15:02:43 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_convert_p(void *ptr)
 {
-	unsigned int	n2;
 
-	if (n < 0)
-	{
-		n2 = -n;
-		ft_putchar_fd('-', fd);
-	}
-	else
-		n2 = n;
-	if (n2 > 9)
-	{
-		ft_putnbr_fd(n2 / 10, fd);
-	}
-	ft_putchar_fd('0' + n2 % 10, fd);
-}

@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_convert_x.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 16:20:04 by aliens            #+#    #+#             */
-/*   Updated: 2020/11/26 16:25:45 by aliens           ###   ########.fr       */
+/*   Created: 2020/12/02 15:11:35 by aliens            #+#    #+#             */
+/*   Updated: 2020/12/02 16:49:46 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+static int	ft_size(int n, int a)
 {
-	size_t	i;
+	if (!n)
+		return (a);
+	return (ft_size(n / 10, a + 1));
+}
 
-	if (!s)
-		return ;
-	i = -1;
-	while (s[++i])
-		ft_putchar_fd(s[i], fd);
+
+int	ft_convert_x(unsigned int n)
+{
+	char	*base;
+
+	base = "0123456789abcdef";
+	if (n)
+	{
+		ft_putchar_fd(base[n % 16], 1);
+		ft_convert_x(n / 16);
+	}
+	return (ft_size(n, 0));
 }

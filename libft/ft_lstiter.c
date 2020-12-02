@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 17:23:37 by aliens            #+#    #+#             */
-/*   Updated: 2020/11/19 12:45:12 by aliens           ###   ########.fr       */
+/*   Created: 2020/11/27 15:29:57 by aliens            #+#    #+#             */
+/*   Updated: 2020/12/01 17:54:02 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	char *petanque;
-
-	petanque = (char *)s;
-	if (n == 0)
+	if (!lst || !f)
 		return ;
-	while (n--)
-		petanque[n] = 0;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }

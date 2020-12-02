@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/27 15:52:43 by aliens            #+#    #+#             */
-/*   Updated: 2020/11/27 17:16:30 by aliens           ###   ########.fr       */
+/*   Created: 2020/11/26 16:32:14 by aliens            #+#    #+#             */
+/*   Updated: 2020/12/01 17:39:03 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	ft_putnbr_fd(int n, int fd)
 {
-	t_list	*lst2;
-	t_list	*dst;
+	unsigned int	n2;
 
-	dst = NULL;
-	while (lst)
+	if (fd < 0)
+		return ;
+	if (n < 0)
 	{
-		if (!(lst2 = ft_lstnew(f(lst->content))))
-		{
-			ft_lstclear(&lst, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&dst, lst2);
-		lst = lst->next;
+		n2 = -n;
+		ft_putchar_fd('-', fd);
 	}
-	return (dst);
+	else
+		n2 = n;
+	if (n2 > 9)
+	{
+		ft_putnbr_fd(n2 / 10, fd);
+	}
+	ft_putchar_fd('0' + n2 % 10, fd);
 }

@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_convert_c.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/27 13:00:16 by aliens            #+#    #+#             */
-/*   Updated: 2020/11/27 14:29:54 by aliens           ###   ########.fr       */
+/*   Created: 2020/12/02 13:34:17 by aliens            #+#    #+#             */
+/*   Updated: 2020/12/02 14:22:42 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int	ft_convert_c(int c)
 {
-	t_list	*lst2;
-
-	if (!*lst)
-	{
-		*lst = new;
-		return ;
-	}
-	lst2 = ft_lstlast(*lst);
-	lst2->next = new;
+	ft_putchar_fd(i, 1);
+	return (1);
 }

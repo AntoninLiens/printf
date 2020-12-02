@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/27 15:29:57 by aliens            #+#    #+#             */
-/*   Updated: 2020/11/27 15:49:51 by aliens           ###   ########.fr       */
+/*   Created: 2020/12/02 13:05:34 by aliens            #+#    #+#             */
+/*   Updated: 2020/12/02 13:29:57 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+int	ft_printf(const char *format, ...)
 {
-	if (!lst)
-		return ;
-	while (lst)
+	va_list	arg;
+	size_t	i;
+
+	i = -1;
+	va_start(arg, format);
+	while (format[i])
 	{
-		f(lst->content);
-		lst = lst->next;
+		if (format[i] == '%')
+			ft_convert(format[i + 1]);
+		while (format[i] != '%')
+			i++;
 	}
+	return (0);
 }

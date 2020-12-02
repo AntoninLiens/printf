@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 16:26:11 by aliens            #+#    #+#             */
-/*   Updated: 2020/11/26 16:31:04 by aliens           ###   ########.fr       */
+/*   Created: 2020/11/26 16:20:04 by aliens            #+#    #+#             */
+/*   Updated: 2020/12/01 17:39:28 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
 	size_t	i;
 
-	if (!s)
+	if (!s || fd < 0)
 		return ;
 	i = -1;
 	while (s[++i])
 		ft_putchar_fd(s[i], fd);
-	ft_putchar_fd('\n', fd);
 }

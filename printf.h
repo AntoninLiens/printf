@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 11:47:14 by aliens            #+#    #+#             */
-/*   Updated: 2020/11/19 17:42:03 by aliens           ###   ########.fr       */
+/*   Created: 2020/12/02 14:32:15 by aliens            #+#    #+#             */
+/*   Updated: 2020/12/02 15:28:52 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef	PRINTF_H
+# define PRINTF_H
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
-{
-	size_t		i;
-	const char	*ptrsrc;
-	char		*ptrdst;
+#include <stdarg.h>
 
-	if (dst == NULL && src == NULL)
-		return (NULL);
-	ptrsrc = src;
-	ptrdst = dst;
-	i = -1;
-	if (ptrdst < ptrsrc)
-		while (++i < len)
-			ptrdst[i] = ptrsrc[i];
-	else
-		while (len--)
-			ptrdst[len] = ptrsrc[len];
-	return (dst);
-}
+int	ft_printf(const char *format, ...);
+
+int		ft_convert_c(int c);
+int		ft_convert_d(int i);
+int		ft_convert_s(char *str);
+int		ft_convert_x(unsigned int n);
+
+#endif
