@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_d_i.c                                   :+:      :+:    :+:   */
+/*   ft_convert_upperX.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 15:11:17 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/02 15:11:24 by aliens           ###   ########.fr       */
+/*   Created: 2020/12/03 16:00:48 by aliens            #+#    #+#             */
+/*   Updated: 2020/12/03 16:32:08 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "../printf.h"
 
 static int	ft_size(int n, int a)
 {
 	if (!n)
 		return (a);
-	else if (n < 0)
-		return (ft_size(n / -10, a + 2));
-	else
-		return (ft_size(n / 10, a + 1));
+	return (ft_size(n / 10, a + 1));
 }
 
-int	ft_convert_d(int i)
+
+int	ft_convert_x(unsigned int n)
 {
-	ft_putnbr_fd(i, 1);
-	return (ft_size(i, 0));
+	char	*base;
+
+	base = "0123456789ABCDEF";
+	if (n)
+	{
+		ft_putchar_fd(base[n / 16], 1);
+		ft_convert_x(n % 16);
+	}
+	return (ft_size(n, 0));
 }

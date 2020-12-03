@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_convert_lowerx.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 13:05:34 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/02 13:29:57 by aliens           ###   ########.fr       */
+/*   Created: 2020/12/02 15:11:35 by aliens            #+#    #+#             */
+/*   Updated: 2020/12/03 16:30:49 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "../printf.h"
 
-int	ft_printf(const char *format, ...)
+static int	ft_size(int n, int a)
 {
-	va_list	arg;
-	size_t	i;
+	if (!n)
+		return (a);
+	return (ft_size(n / 10, a + 1));
+}
 
-	i = -1;
-	va_start(arg, format);
-	while (format[i])
+
+int	ft_convert_x(unsigned int n)
+{
+	char	*base;
+
+	base = "0123456789abcdef";
+	if (n)
 	{
-		if (format[i] == '%')
-			ft_convert(format[i + 1]);
-		while (format[i] != '%')
-			i++;
+		ft_putchar_fd(base[n / 16], 1);
+		ft_convert_x(n % 16);
 	}
-	return (0);
+	return (ft_size(n, 0));
 }
