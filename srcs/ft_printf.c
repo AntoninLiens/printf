@@ -6,28 +6,28 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 13:05:34 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/03 16:44:44 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/04 15:02:25 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-static int	ft_convert(char c, va_list)
+int		ft_convert(char c, va_list arg)
 {
 	if (c == 'c')
-		return (ft_convert_c(va_arg(char)));
+		return (ft_convert_c(va_arg(arg, int)));
 	else if (c == 's')
-		return (ft_convert_s(va_arg(char *)));
+		return (ft_convert_s(va_arg(arg, char *)));
 	else if (c == 'p')
-		return (ft_convert_p(va_arg(void *)));
+		return (ft_convert_p(va_arg(arg, void *)));
 	else if (c == 'd' || c == 'i')
-		return (ft_convert_d_i(va_arg(int)));
-	else if (c == 'u')
-		return (ft_convert_u(va_arg(int)));
+		return (ft_convert_d_i(va_arg(arg, int)));
+//	else if (c == 'u')
+//		return (ft_convert_u(va_arg(arg, int)));
 	else if (c == 'x')
-		return (ft_convert_lowerx(va_arg(unsigned int)));
+		return (ft_convert_lowerx(va_arg(arg, unsigned int)));
 	else if (c == 'X')
-		return (ft_convert_upperX(va_arg(unsigned int)));
+		return (ft_convert_upperX(va_arg(arg, unsigned int)));
 	else if (c == '%')
 	{
 		ft_putchar_fd('%', 1);
@@ -48,12 +48,13 @@ int		ft_printf(const char *format, ...)
 	while (format[i])
 	{
 		if (format[i] == '%')
-			sum += ft_convert(format[i + 1], va_list);
-		while (format[i] != '%')
+			sum += ft_convert(format[++i], arg);
+		else
 		{
-			i++;
+			ft_putchar_fd(format[i], 1);
 			sum++;
 		}
+		i++;
 	}
-	return (0);
+	return (sum);
 }

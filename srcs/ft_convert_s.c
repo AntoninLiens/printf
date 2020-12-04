@@ -6,13 +6,13 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 13:38:00 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/03 16:31:57 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/04 14:26:02 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-void	ft_convert_s(char *str)
+int		ft_convert_s(char *str)
 {
 	ft_putstr_fd(str, 1);
 	return (ft_strlen(str));
