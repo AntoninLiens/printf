@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 15:11:35 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/03 16:30:49 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/04 15:49:04 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_size(int n, int a)
 }
 
 
-int	ft_convert_x(unsigned int n)
+int			ft_convert_x(unsigned int n)
 {
 	char	*base;
 

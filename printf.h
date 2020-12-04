@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 14:32:15 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/04 14:30:39 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/04 15:52:22 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include "libft/libft.h"
 
 int		ft_printf(const char *format, ...);
+
+int		ft_convert(char c, va_list arg);
 
 int		ft_convert_c(int c);
 int		ft_convert_d_i(int i);
