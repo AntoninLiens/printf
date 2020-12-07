@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 13:39:26 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/04 14:23:48 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/07 14:52:48 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int			ft_convert_p(void *ptr)
 	ptr2 = (unsigned long)ptr;
 	hex = "0123456789abcdef";
 	size = ft_size(ptr2, 0);
+	ft_putstr_fd("0x", 1);
 	if (!(dst = ft_calloc(sizeof(char), size + 1)))
 		return (0);
 	while (size--)
