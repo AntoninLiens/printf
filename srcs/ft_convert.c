@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 15:54:25 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/04 15:55:32 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/07 12:39:07 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_convert(char c, va_list arg)
 	else if (c == 'x')
 		return (ft_convert_lowerx(va_arg(arg, unsigned int)));
 	else if (c == 'X')
-		return (ft_convert_upperX(va_arg(arg, unsigned int)));
+		return (ft_convert_upperx(va_arg(arg, unsigned int)));
 	else if (c == '%')
 	{
 		ft_putchar_fd('%', 1);

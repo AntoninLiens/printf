@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 15:11:35 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/04 15:49:04 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/07 13:03:43 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,18 @@ static int	ft_size(int n, int a)
 }
 
 
-int			ft_convert_x(unsigned int n)
+int			ft_convert_lowerx(unsigned int n)
 {
-	char	*base;
+	unsigned int	res;
+	char			*base;
 
+	res = n;
 	base = "0123456789abcdef";
-	if (n)
+	if (n > 16)
 	{
 		ft_putchar_fd(base[n / 16], 1);
-		ft_convert_x(n % 16);
+		ft_convert_lowerx(n % 16);
 	}
-	return (ft_size(n, 0));
+	ft_putchar_fd(n % 16, 1);
+	return (ft_size(res, 0));
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_upperX.c                                :+:      :+:    :+:   */
+/*   ft_convert_upperx.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/03 16:00:48 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/04 15:49:12 by aliens           ###   ########.fr       */
+/*   Created: 2020/12/07 12:35:18 by aliens            #+#    #+#             */
+/*   Updated: 2020/12/07 13:03:17 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,18 @@ static int	ft_size(int n, int a)
 	return (ft_size(n / 10, a + 1));
 }
 
-
-int			ft_convert_x(unsigned int n)
+int			ft_convert_upperx(unsigned int n)
 {
-	char	*base;
+	unsigned int	res;
+	char			*base;
 
+	res = n;
 	base = "0123456789ABCDEF";
-	if (n)
+	if (n > 16)
 	{
 		ft_putchar_fd(base[n / 16], 1);
-		ft_convert_x(n % 16);
+		ft_convert_upperx(n % 16);
 	}
-	return (ft_size(n, 0));
+	ft_putchar_fd(n % 16, 1);
+	return (ft_size(res, 0));
 }

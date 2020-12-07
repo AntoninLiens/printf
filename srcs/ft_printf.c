@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 13:05:34 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/04 15:56:07 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/07 12:41:07 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_printf(const char *format, ...)
 	size_t	i;
 	int		sum;
 
-	i = -1;
+	i = 0;
 	sum = 0;
 	va_start(arg, format);
 	while (format[i])
