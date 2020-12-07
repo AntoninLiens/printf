@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 15:47:33 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/07 16:43:03 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/07 17:11:20 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void		ft_putnbr_ui(unsigned int n)
 	ft_putchar_fd('0' + n % 10, 1);
 }
 
-static int		ft_size(int n, int a)
+static int		ft_size(unsigned int n, int a)
 {
 	if (!n)
 		return (a);
@@ -30,15 +30,12 @@ static int		ft_size(int n, int a)
 
 int				ft_convert_u(int n)
 {
-	int n2;
-
-	n2 = n;
 	if (n < 0)
 	{
 		ft_putnbr_ui(UINT_MAX + (unsigned int)n + 1);
-		return (ft_size(UINT_MAX + n2 + 1, 0));
+		return (ft_size(UINT_MAX + (unsigned int)n + 1, 0));
 	}
 	else
 		ft_putnbr_ui((unsigned int)n);
-	return (ft_size(n2, 0));
+	return (ft_size((unsigned int)n, 0));
 }
