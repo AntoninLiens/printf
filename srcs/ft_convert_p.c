@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 13:39:26 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/07 15:46:05 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/07 18:38:59 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ int			ft_convert_p(void *ptr)
 	}
 	ft_putstr_fd(dst, 1);
 	free(dst);
-	return (ft_size((unsigned long)ptr, 0));
+	return (ft_size((unsigned long)ptr, 0) + 2);
 }
