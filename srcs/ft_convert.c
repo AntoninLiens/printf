@@ -6,29 +6,30 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 15:54:25 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/07 16:06:30 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/08 14:18:09 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
 
-int		ft_convert(char c, va_list arg)
+int		ft_convert(const char **format, va_list arg)
 {
-	if (c == 'c')
+	*format++;
+	if (**format == 'c')
 		return (ft_convert_c(va_arg(arg, int)));
-	else if (c == 's')
+	else if (**format == 's')
 		return (ft_convert_s(va_arg(arg, char *)));
-	else if (c == 'p')
+	else if (**format == 'p')
 		return (ft_convert_p(va_arg(arg, void *)));
-	else if (c == 'd' || c == 'i')
+	else if (**format == 'd' || c == 'i')
 		return (ft_convert_d_i(va_arg(arg, int)));
-	else if (c == 'u')
+	else if (**format == 'u')
 		return (ft_convert_u(va_arg(arg, int)));
-	else if (c == 'x')
+	else if (**format == 'x')
 		return (ft_convert_lowerx(va_arg(arg, unsigned int)));
-	else if (c == 'X')
+	else if (**format == 'X')
 		return (ft_convert_upperx(va_arg(arg, unsigned int)));
-	else if (c == '%')
+	else if (**format == '%')
 	{
 		ft_putchar_fd('%', 1);
 		return (1);
