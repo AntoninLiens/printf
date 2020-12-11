@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 17:45:08 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/02 09:15:27 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/08 17:58:16 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,10 @@ static int	ft_size(int n, int a)
 
 char		*ft_itoa(int n)
 {
-	int		size;
-	int		n2;
-	char	*dst;
+	int				size;
+	unsigned int	n2;
+	char			*dst;
 
-	if (n == INT_MIN)
-		return (ft_strdup("-2147483648"));
 	size = n ? ft_size(n, 0) : 1;
 	n2 = n < 0 ? -n : n;
 	if (!(dst = ft_calloc(sizeof(char), size + 1)))

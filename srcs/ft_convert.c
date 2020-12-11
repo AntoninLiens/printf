@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 15:54:25 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/08 14:18:09 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/10 16:36:17 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 int		ft_convert(const char **format, va_list arg)
 {
-	*format++;
 	if (**format == 'c')
 		return (ft_convert_c(va_arg(arg, int)));
 	else if (**format == 's')
 		return (ft_convert_s(va_arg(arg, char *)));
 	else if (**format == 'p')
 		return (ft_convert_p(va_arg(arg, void *)));
-	else if (**format == 'd' || c == 'i')
+	else if (**format == 'd' || **format == 'i')
 		return (ft_convert_d_i(va_arg(arg, int)));
 	else if (**format == 'u')
 		return (ft_convert_u(va_arg(arg, int)));

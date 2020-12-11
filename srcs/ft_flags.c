@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 12:04:31 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/08 14:50:26 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/10 16:19:15 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int		ft_flags(const char **format, va_list arg)
 {
-	*format++;
+	(*format)++;
 	if (**format == '-')
-		return (ft_flag_minus(&format, va_arg(arg, int)));
-	else if (**format == '0' || **format == '.')
-		return (ft_flags_zero_point(&format, va_arg(arg, int)));
+		return (ft_flag_minus(format, arg));
+/*	else if (**format == '0' || **format == '.')
+		return (ft_flags_zero_point(format, arg));
 	else if (**format == '*')
-		return (ft_flag_all(&format, va_arg(arg, int)));
-	return (ft_convert(format, arg);
-}		
+		return (ft_flag_all(format, arg));*/
+	return (ft_convert(format, arg));
+}

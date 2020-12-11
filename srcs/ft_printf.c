@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 13:05:34 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/08 13:45:35 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/10 16:33:18 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ int		ft_printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format == '%')
-		{
-			ft_flags(&format, arg);
-			sum += ft_convert(&format, arg);
-		}
+			sum += ft_flags(&format, arg);
 		else
 		{
 			ft_putchar_fd(*format, 1);
@@ -33,5 +30,6 @@ int		ft_printf(const char *format, ...)
 		}
 		format++;
 	}
+	va_end(arg);
 	return (sum);
 }

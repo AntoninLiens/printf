@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 16:27:17 by aliens            #+#    #+#             */
-/*   Updated: 2020/11/26 13:27:40 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/08 17:03:51 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	ft_atoi(const char *str)
 {
+	unsigned long long int	num2;
 	unsigned long long int	num;
 	int						i;
 	int						sign;
@@ -28,13 +29,11 @@ int	ft_atoi(const char *str)
 			sign *= -1;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		num2 = num;
 		num = num * 10 + (str[i] - '0');
-		if (num >= LLONG_MAX && sign == -1)
-			return (0);
-		else if (num >= LLONG_MAX && sign == 1)
-			return (-1);
+		if (num >= LLONG_MAX || num < num2)
+			return (sign == 1 ? -1 : 0);
 		i++;
 	}
-	num *= sign;
-	return (num);
+	return (num * sign);
 }

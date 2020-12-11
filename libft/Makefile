@@ -6,7 +6,7 @@
 #    By: aliens <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 16:23:35 by aliens            #+#    #+#              #
-#    Updated: 2020/12/04 14:43:24 by aliens           ###   ########.fr        #
+#    Updated: 2020/12/01 17:23:58 by aliens           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,10 +75,12 @@ RM			=	rm -f
 
 $(NAME):	$(OBJS)
 			@ar -rcs $(NAME) $(OBJS)
+			@ranlib $(NAME)
 			@echo "$(GREEN)libft.a created..$(RESET)"
 
 bonus:		$(OBJS_BONUS)
 			@ar -rcs $(NAME) $(OBJS_BONUS)
+			@ranlib $(NAME)
 			@echo "$(GREEN)bonus.o -> libft.a$(RESET)"
 		
 full:		$(NAME) bonus
