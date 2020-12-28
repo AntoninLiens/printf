@@ -6,15 +6,9 @@
 #    By: aliens <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 16:23:35 by aliens            #+#    #+#              #
-#    Updated: 2020/12/01 17:23:58 by aliens           ###   ########.fr        #
+#    Updated: 2020/12/13 14:09:08 by aliens           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-PURPLE		= 	$(shell tput -Txterm setaf 5)
-RED			= 	$(shell tput -Txterm setaf 1)
-GREEN		= 	$(shell tput -Txterm setaf 2)
-WHITE		= 	$(shell tput -Txterm setaf 7)
-RESET		= 	$(shell tput -Txterm sgr0)
 
 SRCS		=	ft_atoi.c\
 				ft_isalpha.c\
@@ -74,32 +68,24 @@ CFLAGS		=	-Wall -Werror -Wextra
 RM			=	rm -f
 
 $(NAME):	$(OBJS)
-			@ar -rcs $(NAME) $(OBJS)
-			@ranlib $(NAME)
-			@echo "$(GREEN)libft.a created..$(RESET)"
+			ar -rcs $(NAME) $(OBJS)
 
 bonus:		$(OBJS_BONUS)
-			@ar -rcs $(NAME) $(OBJS_BONUS)
-			@ranlib $(NAME)
-			@echo "$(GREEN)bonus.o -> libft.a$(RESET)"
+			ar -rcs $(NAME) $(OBJS_BONUS)
 		
 full:		$(NAME) bonus
 
 .c.o:
-			@$(CC) $(CFLAGS) -c -I./ $< -o $(<:.c=.o)
-			@echo "$(PURPLE)ft.c -> $< -> ft.o$(RESET)"
+			$(CC) $(CFLAGS) -c -I./ $< -o $(<:.c=.o)
 
 all:		$(NAME)
 
 clean:
-			@$(RM) $(OBJS) $(OBJS_BONUS)
-			@echo "$(RED)Objects are clean..$(RESET)"
+			$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean:		clean
-			@$(RM) $(NAME)
-			@echo "$(RED)libft.a is clean..$(RESET)"
+			$(RM) $(NAME)
 
 re:			fclean all
-			@echo "$(GREEN)Restart OK!$(RESET)"
 
 .PHONY:		all clean fclean re bonus full

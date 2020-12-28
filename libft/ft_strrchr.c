@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 09:32:53 by aliens            #+#    #+#             */
-/*   Updated: 2020/11/21 11:11:10 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/16 15:57:31 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ char	*ft_strrchr(const char *s, int c)
 {
 	size_t	i;
 
-	if (c == 0)
-		return ((char *)s + ft_strlen((char *)s));
-	i = ft_strlen((char *)s);
-	while (i--)
-		if (s[i] == c)
+	i = 0;
+	while (s[i])
+		i++;
+	if (!c)
+		return ((char *)s + i);
+	while (i-- > 0)
+		if (s[i] == (char)c)
 			return ((char *)s + i);
 	return (0);
 }

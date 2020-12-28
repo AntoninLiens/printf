@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 16:20:04 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/01 17:39:28 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/18 16:32:52 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	i;
-
 	if (!s || fd < 0)
-		return ;
-	i = -1;
-	while (s[++i])
-		ft_putchar_fd(s[i], fd);
+		write(fd, s, ft_strlen(s));
 }

@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 17:45:08 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/08 17:58:16 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/13 16:14:06 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char		*ft_itoa(int n)
 
 	size = n ? ft_size(n, 0) : 1;
 	n2 = n < 0 ? -n : n;
-	if (!(dst = ft_calloc(sizeof(char), size + 1)))
+	if (!(dst = (char *)ft_calloc(sizeof(char), size + 1)))
 		return (NULL);
 	ft_memset(dst, '0', size);
 	if (!n)

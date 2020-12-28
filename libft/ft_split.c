@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 17:01:17 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/01 17:40:49 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/13 16:21:15 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char			**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	size = ft_word_number(s, c);
-	if (!(dst = ft_calloc(sizeof(char *), size + 1)))
+	if (!(dst = (char **)ft_calloc(sizeof(char *), size + 1)))
 		return (NULL);
 	i = -1;
 	while (++i < size)

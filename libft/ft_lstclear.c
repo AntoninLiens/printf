@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 15:13:44 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/01 17:53:16 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/15 16:15:29 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*lst2;
 
-	if (!lst || !del)
+	if (!lst)
 		return ;
 	while (*lst)
 	{

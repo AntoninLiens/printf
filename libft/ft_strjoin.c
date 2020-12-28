@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:43:42 by aliens            #+#    #+#             */
-/*   Updated: 2020/11/23 14:19:56 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/13 16:18:00 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!s1 || !s2)
 		return (NULL);
 	s = ft_strlen(s1) + ft_strlen(s2) + 1;
-	if (!(dst = ft_calloc(sizeof(char), s)))
+	if (!(dst = (char *)ft_calloc(sizeof(char), s)))
 		return (NULL);
 	ft_memcpy(dst, s1, ft_strlen(s1));
 	ft_memcpy(dst + ft_strlen(s1), s2, ft_strlen(s2));

@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 11:25:06 by aliens            #+#    #+#             */
-/*   Updated: 2020/11/26 12:48:11 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/16 16:07:57 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,20 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*dst;
 	size_t	i;
-	size_t	j;
 
-	if (!(dst = ft_calloc(sizeof(char), len + 1)) || !s)
+	if (!s)
+		return (NULL);
+	len > ft_strlen(s) - start + 1 ? len = ft_strlen(s) - start : len;
+	if (ft_strlen(s) < start)
+	{
+		if (!(dst = (char *)ft_calloc(sizeof(char), 1)))
+			return (NULL);
+		return (dst);
+	}
+	if (!(dst = ft_calloc(sizeof(char), len + 1)))
 		return (NULL);
 	i = -1;
-	j = -1;
-	while (s[++i])
-		if (i >= start && ++j < len)
-			dst[j] = s[i];
+	while (++i < len)
+		dst[i] = s[start + i];
 	return (dst);
 }

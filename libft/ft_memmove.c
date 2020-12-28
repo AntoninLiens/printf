@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 11:47:14 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/01 17:33:57 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/14 12:44:42 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char	*ptrsrc;
 	char	*ptrdst;
 
-	if (dst == NULL && src == NULL)
+	if (!dst && !src)
 		return (NULL);
 	ptrsrc = (char *)src;
 	ptrdst = (char *)dst;
