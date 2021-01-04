@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 12:00:31 by aliens            #+#    #+#             */
-/*   Updated: 2020/11/19 15:07:38 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/28 18:31:27 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	unsigned char	*s2;
 	unsigned char	c2;
 
+	if (!s)
+		return (NULL);
 	c2 = (unsigned char)c;
 	s2 = (unsigned char *)s;
 	i = -1;

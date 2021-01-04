@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 15:14:20 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/08 17:09:32 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/28 18:27:58 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t i;
 	size_t count_src;
 
+	if (!src || !dst)
+		return (0);
 	i = 0;
 	count_src = 0;
 	while (src[count_src])

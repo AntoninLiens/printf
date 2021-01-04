@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 17:23:37 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/01 17:27:19 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/28 18:37:17 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_bzero(void *s, size_t n)
 {
 	char *ptr;
 
+	if (!s || n < 0)
+		return ;
 	ptr = (char *)s;
 	if (n == 0)
 		return ;

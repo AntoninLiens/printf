@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 11:13:42 by aliens            #+#    #+#             */
-/*   Updated: 2020/11/19 17:00:08 by aliens           ###   ########.fr       */
+/*   Updated: 2020/12/28 18:31:01 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	unsigned const char	*ptrsrc;
 	unsigned char		*ptrdst;
 
+	if (!dst || !src)
+		return (NULL);
 	ptrsrc = (unsigned const char *)src;
 	ptrdst = (unsigned char *)dst;
 	i = -1;
