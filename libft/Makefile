@@ -6,7 +6,7 @@
 #    By: aliens <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 16:23:35 by aliens            #+#    #+#              #
-#    Updated: 2020/12/28 18:30:29 by aliens           ###   ########.fr        #
+#    Updated: 2021/01/05 12:28:56 by aliens           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,13 +84,13 @@ full:		$(NAME) bonus
 
 .c.o:
 			@$(CC) $(CFLAGS) -c -I./ $< -o $(<:.c=.o)
-			@echo "$(PURPLE)$< -> ft.o$(RESET)"
+			@echo "$(PURPLE)ft.c -> $< -> ft.o$(RESET)"
 
 all:		$(NAME)
 
 clean:
 			@$(RM) $(OBJS) $(OBJS_BONUS)
-			@echo "$(RED)objects erased$(RESET)"
+			@echo "$(RED)libft objects erased$(RESET)"
 
 fclean:		clean
 			@$(RM) $(NAME)

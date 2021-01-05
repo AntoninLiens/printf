@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_s.c                                     :+:      :+:    :+:   */
+/*   ft_convert_c.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 13:38:00 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/04 14:26:02 by aliens           ###   ########.fr       */
+/*   Created: 2020/12/02 13:34:17 by aliens            #+#    #+#             */
+/*   Updated: 2021/01/04 14:55:27 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../printf.h"
+#include "./printf.h"
 
-int		ft_convert_s(char *str)
+int	ft_convert_c(int c)
 {
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
+	char	c2;
+
+	c2 = (char)c;
+	ft_putchar_fd(c2, 1);
+	return (1);
 }

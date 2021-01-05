@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_d_i.c                                   :+:      :+:    :+:   */
+/*   ft_convert_upperx.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 15:11:17 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/07 12:38:57 by aliens           ###   ########.fr       */
+/*   Created: 2020/12/07 12:35:18 by aliens            #+#    #+#             */
+/*   Updated: 2021/01/04 14:56:10 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../printf.h"
+#include "./printf.h"
 
 static int	ft_size(int n, int a)
 {
 	if (!n)
 		return (a);
-	else if (n < 0)
-		return (ft_size(n / -10, a + 2));
-	else
-		return (ft_size(n / 10, a + 1));
+	return (ft_size(n / 16, a + 1));
 }
 
-int			ft_convert_d_i(int i)
+int			ft_convert_upperx(unsigned int n)
 {
-	ft_putnbr_fd(i, 1);
-	return (ft_size(i, 0));
+	unsigned int	ret;
+	size_t			i;
+	char			*base;
+	char			*res;
+
+	ret = n;
+	base = "0123456789ABCDEF";
+	i = ft_size(n, 0);
+	if (!(res = ft_calloc(sizeof(char), i + 1)))
+		return (0);
+	while (i--)
+	{
+		res[i] = base[n % 16];
+		n /= 16;
+	}
+	ft_putstr_fd(res, 1);
+	return (ft_size(ret, 0));
 }

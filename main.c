@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 15:22:25 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/10 16:39:45 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/04 14:41:43 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void)
 
 	if (!(ptr = ft_calloc(sizeof(char), 11)))
 		return (0);
-/*	ft_printf("printf d : %d\n", printf("%d\n", 11));
+	ft_printf("printf d : %d\n", printf("%d\n", 11));
 	ft_printf("ft_printf d : %d\n", ft_printf("%d\n", 11));
 	ft_printf("printf c : %d\n", printf("%c\n", 'a'));
 	ft_printf("ft_printf c : %d\n", ft_printf("%c\n", 'a'));
@@ -38,10 +38,6 @@ int	main(void)
 	ft_printf("printf u : %d\n", printf("%u\n", 10));
 	ft_printf("ft_printf u : %d\n", ft_printf("%u\n", 10));
 	ft_printf("printf u : %d\n", printf("%u\n", -10));
-	ft_printf("ft_printf u : %d\n", ft_printf("%u\n", -10));*/
-	ft_printf("printf -* : %d\n", printf("%-*d\n", 19, 42));
-	ft_printf("ft_printf -* : %d\n", ft_printf("%-d\n", 19, 42));
-	ft_printf("printf -nbr : %d\n", printf("%-42d\n", 19));
-	ft_printf("ft_printf -nbr : %d\n", ft_printf("%-42d\n", 19));
+	ft_printf("ft_printf u : %d\n", ft_printf("%u\n", -10));
 	return (0);
 }

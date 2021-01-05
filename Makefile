@@ -6,7 +6,7 @@
 #    By: aliens <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 16:44:51 by aliens            #+#    #+#              #
-#    Updated: 2020/12/10 17:00:55 by aliens           ###   ########.fr        #
+#    Updated: 2021/01/05 12:27:51 by aliens           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,16 @@ GREEN	= 	$(shell tput -Txterm setaf 2)
 WHITE	= 	$(shell tput -Txterm setaf 7)
 RESET	= 	$(shell tput -Txterm sgr0)
 
-SRCS	=	$(shell ls srcs/ | grep -E ".+\.c")
+SRCS	=	ft_convert_d_i.c\
+			ft_convert_s.c\
+			ft_printf.c\
+			ft_convert.c\
+			ft_convert_lowerx.c\
+			ft_convert_u.c ft_convert_c.c\
+			ft_convert_p.c\
+			ft_convert_upperX.c
 
-OBJS	=	$(addprefix srcs/, $(SRCS:.c=.o))
+OBJS	=	$(SRCS:.c=.o)
 
 NAME	=	libftprintf.a
 
@@ -34,7 +41,6 @@ $(NAME):	$(OBJS)
 			@make full -C $(LIBFT)
 			@cp libft/libft.a ./$(NAME)
 			@ar -rcs $(NAME) $(OBJS)
-			@ranlib $(NAME)
 			@echo "$(GREEN)libftprintf.a created..$(RESET)"
 
 .c.o:
@@ -46,12 +52,12 @@ all:		$(NAME)
 clean:
 			@$(RM) $(OBJS)
 			@make clean -C $(LIBFT)
-			@echo "$(RED)Objects are clean..$(RESET)"
+			@echo "$(RED)ft_printf objects erased$(RESET)"
 
 fclean:		clean
 			@$(RM) $(NAME)
 			@make fclean -C $(LIBFT)
-			@echo "$(RED)libftprintf.a is clean..$(RESET)"
+			@echo "$(RED)libftprintf.a erased$(RESET)"
 
 re:			fclean all
 			@echo "$(GREEN)Restart OK!$(RESET)"

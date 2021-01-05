@@ -6,11 +6,11 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 15:47:33 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/07 17:11:20 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/04 14:56:04 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../printf.h"
+#include "./printf.h"
 
 static void		ft_putnbr_ui(unsigned int n)
 {

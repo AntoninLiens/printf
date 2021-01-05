@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flags_zero_point.c                              :+:      :+:    :+:   */
+/*   ft_convert_s.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/10 17:03:41 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/10 17:05:02 by aliens           ###   ########.fr       */
+/*   Created: 2020/12/02 13:38:00 by aliens            #+#    #+#             */
+/*   Updated: 2021/01/04 14:55:56 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "./printf.h"
 
-int		ft_flags_zero_point(const char **format, va_list arg)
+int		ft_convert_s(char *str)
 {
-
+	ft_putstr_fd(str, 1);
+	return (ft_strlen(str));
 }

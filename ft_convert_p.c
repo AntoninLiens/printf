@@ -6,11 +6,11 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 13:39:26 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/07 18:38:59 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/04 14:55:50 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../printf.h"
+#include "./printf.h"
 
 static int	ft_size(unsigned long n, int a)
 {
