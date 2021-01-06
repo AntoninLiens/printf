@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 14:32:15 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/05 19:21:47 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/06 17:22:09 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,28 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 
-typedef struct	s_list
+typedef struct	ft_printf_list
 {
 	va_list	arg;
-	int		flag_minus;
-	int		flag_zero;
-	int		flag_dot;
-	int		flag_star;
-}				t_list;
+	int		flags[2];
+}				p_list;
 
-t_list			list;
+p_list			list;
+
+void			ft_reset_list(void);
 
 int				ft_printf(const char *format, ...);
 
-int				ft_convert(const char **format, va_list arg);
+int				ft_check_type(const char **format);
+void			ft_check_flag(const char *format);
 
-int				ft_convert_c(int c);
-int				ft_convert_d_i(int i);
-int				ft_convert_s(char *str);
-int				ft_convert_lowerx(unsigned int n);
-int				ft_convert_upperx(unsigned int n);
-int				ft_convert_p(void *ptr);
-int				ft_convert_u(int n);
+int				ft_type_c(int c);
+int				ft_type_d_i(int i);
+int				ft_type_s(char *str);
+int				ft_type_lowerx(unsigned int n);
+int				ft_type_upperx(unsigned int n);
+int				ft_type_p(void *ptr);
+int				ft_type_u(int n);
 
-int				ft_flags(const char **format, va_list arg);
 
 #endif

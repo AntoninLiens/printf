@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_p.c                                     :+:      :+:    :+:   */
+/*   ft_type_p.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 13:39:26 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/04 14:55:50 by aliens           ###   ########.fr       */
+/*   Created: 2021/01/06 17:08:27 by aliens            #+#    #+#             */
+/*   Updated: 2021/01/06 17:08:40 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_size(unsigned long n, int a)
 	return (ft_size(n / 16, a + 1));
 }
 
-int			ft_convert_p(void *ptr)
+int			ft_type_p(void *ptr)
 {
 	unsigned long	ptr2;
 	char			*hex;

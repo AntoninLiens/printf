@@ -6,7 +6,7 @@
 #    By: aliens <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 16:44:51 by aliens            #+#    #+#              #
-#    Updated: 2021/01/05 12:27:51 by aliens           ###   ########.fr        #
+#    Updated: 2021/01/06 17:21:51 by aliens           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,14 @@ GREEN	= 	$(shell tput -Txterm setaf 2)
 WHITE	= 	$(shell tput -Txterm setaf 7)
 RESET	= 	$(shell tput -Txterm sgr0)
 
-SRCS	=	ft_convert_d_i.c\
-			ft_convert_s.c\
+SRCS	=	ft_type_d_i.c\
+			ft_type_s.c\
 			ft_printf.c\
-			ft_convert.c\
-			ft_convert_lowerx.c\
-			ft_convert_u.c ft_convert_c.c\
-			ft_convert_p.c\
-			ft_convert_upperX.c
+			ft_type_lowerx.c\
+			ft_type_u.c\
+			ft_type_c.c\
+			ft_type_p.c\
+			ft_type_upperx.c
 
 OBJS	=	$(SRCS:.c=.o)
 

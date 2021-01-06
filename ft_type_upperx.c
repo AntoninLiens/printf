@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_u.c                                     :+:      :+:    :+:   */
+/*   ft_type_upperx.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/07 15:47:33 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/04 14:56:04 by aliens           ###   ########.fr       */
+/*   Created: 2021/01/06 17:09:36 by aliens            #+#    #+#             */
+/*   Updated: 2021/01/06 17:10:05 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./printf.h"
 
-static void		ft_putnbr_ui(unsigned int n)
-{
-	if (n < 0)
-		ft_putchar_fd('-', 1);
-	if (n > 9)
-		ft_putnbr_ui(n / 10);
-	ft_putchar_fd('0' + n % 10, 1);
-}
-
-static int		ft_size(unsigned int n, int a)
+static int	ft_size(int n, int a)
 {
 	if (!n)
 		return (a);
-	return (ft_size(n / 10, a + 1));
+	return (ft_size(n / 16, a + 1));
 }
 
-int				ft_convert_u(int n)
+int			ft_type_upperx(unsigned int n)
 {
-	if (n < 0)
+	unsigned int	ret;
+	size_t			i;
+	char			*base;
+	char			*res;
+
+	ret = n;
+	base = "0123456789ABCDEF";
+	i = ft_size(n, 0);
+	if (!(res = ft_calloc(sizeof(char), i + 1)))
+		return (0);
+	while (i--)
 	{
-		ft_putnbr_ui(UINT_MAX + (unsigned int)n + 1);
-		return (ft_size(UINT_MAX + (unsigned int)n + 1, 0));
+		res[i] = base[n % 16];
+		n /= 16;
 	}
-	else
-		ft_putnbr_ui((unsigned int)n);
-	return (ft_size((unsigned int)n, 0));
+	ft_putstr_fd(res, 1);
+	return (ft_size(ret, 0));
 }
