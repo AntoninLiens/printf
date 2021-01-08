@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 14:32:15 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/06 17:22:09 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/07 16:04:39 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 
 typedef struct	ft_printf_list
 {
-	va_list	arg;
-	int		flags[2];
+	va_list		arg;
+	int			flags[2];
+	int			prec[2];
 }				p_list;
 
 p_list			list;

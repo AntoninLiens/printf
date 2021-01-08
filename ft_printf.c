@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 13:05:34 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/06 17:22:40 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/07 16:34:35 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int		ft_check_type(const char **format)
 {
-	(*format)++;
 	if (**format == 'c')
 		return (ft_type_c(va_arg(list.arg, int)));
 	else if (**format == 's')
@@ -52,11 +51,13 @@ void	ft_check_flag(const char *format)
 		list.flags[0] = 4;
 	if (list.flags[0])
 		i++;
-	while (ft_isdigit((int)format[i]) ||
-			(format[i] == '*' && format[i + 1] != '*'))
+	if (list.flags[0] == 1 || list.flags[0] == 2)
+		while (format[i] == format[i - 1])
+			i++;
+	while (ft_isdigit((int)format[i]) || format[i] == '*')
 		i++;
-	if (format[i] == '.' && list.flags[0] == 0)
-		list.flags[1] = 4;
+	if (format[i] == '.' && list.flags[0])
+		list.flags[1] = 3;
 	return ;
 }
 
@@ -64,6 +65,8 @@ void	ft_reset_list(void)
 {
 	list.flags[0] = 0;
 	list.flags[1] = 0;
+	list.prec[0] = 0;
+	list.prec[1] = 0;
 }
 
 int		ft_printf(const char *format, ...)
@@ -77,6 +80,7 @@ int		ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
+			format++;
 			ft_check_flag(format);
 			sum += ft_check_type(&format);
 		}

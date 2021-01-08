@@ -6,7 +6,7 @@
 #    By: aliens <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 16:44:51 by aliens            #+#    #+#              #
-#    Updated: 2021/01/06 17:21:51 by aliens           ###   ########.fr        #
+#    Updated: 2021/01/07 16:06:43 by aliens           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,13 +41,15 @@ $(NAME):	$(OBJS)
 			@make full -C $(LIBFT)
 			@cp libft/libft.a ./$(NAME)
 			@ar -rcs $(NAME) $(OBJS)
-			@echo "$(GREEN)libftprintf.a created..$(RESET)"
+			@echo "$(GREEN)libftprintf.a created$(RESET)"
 
 .c.o:
 			@$(CC) $(CFLAGS) -c -I./ $< -o $(<:.c=.o)
 			@echo "$(PURPLE)ft.c -> $< -> ft.o$(RESET)"
 
 all:		$(NAME)
+
+allup:		$(NAME) clean
 
 clean:
 			@$(RM) $(OBJS)
