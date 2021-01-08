@@ -6,13 +6,13 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 13:05:34 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/07 16:34:35 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/08 16:09:00 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./printf.h"
 
-int		ft_check_type(const char **format)
+int		ft_get_type(const char **format)
 {
 	if (**format == 'c')
 		return (ft_type_c(va_arg(list.arg, int)));
@@ -36,28 +36,45 @@ int		ft_check_type(const char **format)
 	return (0);
 }
 
-void	ft_check_flag(const char *format)
+void	ft_get_prec(const char **format, int i)
 {
-	int i;
+	if (**format == '*')
+	{
+		list.prec[i] = va_arg(list.arg, int);
+		(*format)++;
+	}
+	else if (ft_isdigit((int)**format))
+	{
+		list.prec[i] = ft_atoi(*format);
+		while (ft_isdigit((int)**format))
+			(*format)++;
+	}
+	return ;
+}
 
-	i = 0;
-	if (format[i] == '-')
-		list.flags[0] = 1;
-	else if (format[i] == '0')
-		list.flags[0] = 2;
-	else if (format[i] == '.')
-		list.flags[0] = 3;
-	else if (format[i] == '*' || ft_isdigit((int)format[i]))
-		list.flags[0] = 4;
-	if (list.flags[0])
-		i++;
-	if (list.flags[0] == 1 || list.flags[0] == 2)
-		while (format[i] == format[i - 1])
-			i++;
-	while (ft_isdigit((int)format[i]) || format[i] == '*')
-		i++;
-	if (format[i] == '.' && list.flags[0])
-		list.flags[1] = 3;
+void	ft_get_flag(const char **format)
+{
+	int		i;
+
+	i = -1;
+	while (++i < 2)
+	{
+		if (**format == '-')
+			list.flags[i] = 1;
+		else if (**format == '0')
+			list.flags[i] = 2;
+		else if (**format == '.')
+			list.flags[i] = 3;
+		else if (**format == '*' || ft_isdigit((int)**format))
+			list.flags[i] = 4;
+		if (list.flags[i])
+			(*format)++;
+		if (list.flags[i] == 1 || list.flags[i] == 2)
+			while (**format == *(*format - 1))
+				(*format)++;
+		if (ft_isdigit((int)**format) || **format == '*')
+			ft_get_prec(format, i);
+	}
 	return ;
 }
 
@@ -81,8 +98,8 @@ int		ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			ft_check_flag(format);
-			sum += ft_check_type(&format);
+			ft_get_flag(&format);
+			sum += ft_get_type(&format);
 		}
 		else
 		{

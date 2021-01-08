@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 14:32:15 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/07 16:04:39 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/08 16:08:36 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,25 @@
 # define PRINTF_H
 
 # include <stdarg.h>
+# include <stdio.h>
 # include "libft/libft.h"
 
-typedef struct	ft_printf_list
+typedef struct	s_ft_printf
 {
 	va_list		arg;
 	int			flags[2];
 	int			prec[2];
 }				p_list;
 
-p_list			list;
+p_list		list;
 
 void			ft_reset_list(void);
 
 int				ft_printf(const char *format, ...);
 
-int				ft_check_type(const char **format);
-void			ft_check_flag(const char *format);
+int				ft_get_type(const char **format);
+void			ft_get_flag(const char **format);
+void			ft_get_prec(const char **format, int i);
 
 int				ft_type_c(int c);
 int				ft_type_d_i(int i);
@@ -39,6 +41,5 @@ int				ft_type_lowerx(unsigned int n);
 int				ft_type_upperx(unsigned int n);
 int				ft_type_p(void *ptr);
 int				ft_type_u(int n);
-
 
 #endif

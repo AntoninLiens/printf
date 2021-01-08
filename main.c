@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 15:22:25 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/07 17:05:34 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/08 15:43:21 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 int	main(void)
 {
-	void *ptr;
+/*	void *ptr;
 
 	if (!(ptr = ft_calloc(sizeof(char), 11)))
 		return (0);
-/*	ft_printf("printf d : %d\n", printf("%d\n", 0));
+	ft_printf("printf d : %d\n", printf("%d\n", 0));
 	ft_printf("ft_printf d : %d\n", ft_printf("%d\n", 0));
 	ft_printf("printf c : %d\n", printf("%c\n", 'a'));
 	ft_printf("ft_printf c : %d\n", ft_printf("%c\n", 'a'));
@@ -39,8 +39,12 @@ int	main(void)
 	ft_printf("ft_printf u : %d\n", ft_printf("%u\n", 10));
 	ft_printf("printf u : %d\n", printf("%u\n", -10));
 	ft_printf("ft_printf u : %d\n", ft_printf("%u\n", -10));*/
-	ft_printf("%**d\n", 19);
-	printf("%d\n", list.flags[0]);
-	printf("%d\n", list.flags[1]);
+	ft_printf("%---------12.*d\n", 19, 42);
+	printf("flags actifs :\n");
+	printf("1 : %d\n", list.flags[0]);
+	printf("2 : %d\n", list.flags[1]);
+	printf("precision :\n");
+	printf("1 : %d\n", list.prec[0]);
+	printf("2 : %d\n", list.prec[1]);
 	return (0);
 }
