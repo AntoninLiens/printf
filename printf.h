@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 14:32:15 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/08 16:08:36 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/08 16:41:02 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct	s_ft_printf
 	int			prec[2];
 }				p_list;
 
-p_list		list;
+p_list			list;
 
 void			ft_reset_list(void);
 
