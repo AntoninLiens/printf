@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:43:09 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/08 16:43:23 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/10 18:17:34 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int	ft_type_c(int c)
 {
-	char	c2;
-
-	c2 = (char)c;
-	ft_putchar_fd(c2, 1);
+	ft_putchar_fd((char)c, 1);
 	return (1);
 }

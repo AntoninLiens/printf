@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 15:22:25 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/08 15:43:21 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/10 18:38:38 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,15 @@ int	main(void)
 	ft_printf("printf u : %d\n", printf("%u\n", 10));
 	ft_printf("ft_printf u : %d\n", ft_printf("%u\n", 10));
 	ft_printf("printf u : %d\n", printf("%u\n", -10));
-	ft_printf("ft_printf u : %d\n", ft_printf("%u\n", -10));*/
+	ft_printf("ft_printf u : %d\n", ft_printf("%u\n", -10));
 	ft_printf("%---------12.*d\n", 19, 42);
 	printf("flags actifs :\n");
 	printf("1 : %d\n", list.flags[0]);
 	printf("2 : %d\n", list.flags[1]);
 	printf("precision :\n");
 	printf("1 : %d\n", list.prec[0]);
-	printf("2 : %d\n", list.prec[1]);
+	printf("2 : %d\n", list.prec[1]);*/
+	printf("%d", 19);
+//	free(ptr);
 	return (0);
 }
