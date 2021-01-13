@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:14:53 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/08 16:15:23 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/13 15:37:49 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void	ft_get_prec(const char **format, int i)
 		while (ft_isdigit((int)**format))
 			(*format)++;
 	}
-	return ;
 }
 
 void	ft_get_flag(const char **format)
@@ -67,7 +66,7 @@ void	ft_get_flag(const char **format)
 			list.flags[i] = 3;
 		else if (**format == '*' || ft_isdigit((int)**format))
 			list.flags[i] = 4;
-		if (list.flags[i])
+		if (list.flags[i] && !ft_isdigit((int)**format))
 			(*format)++;
 		if (list.flags[i] == 1 || list.flags[i] == 2)
 			while (**format == *(*format - 1))
