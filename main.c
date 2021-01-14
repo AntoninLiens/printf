@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 15:22:25 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/14 14:48:30 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/14 16:29:11 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int	main(void)
 	printf("precision :\n");
 	printf("1 : %d\n", list.prec[0]);
 	printf("2 : %d\n", list.prec[1]);*/
-	ft_printf("%d\n", ft_printf("%010x|\n", 19));
-	ft_printf("%d\n", printf("%010x|\n", 19));
+	ft_printf("%d\n", ft_printf("%010.4u|\n", 19));
+	ft_printf("%d\n", printf("%010.4u|\n", 19));
 //	free(ptr);
 	return (0);
 }
