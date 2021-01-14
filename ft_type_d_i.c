@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:43:35 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/13 15:58:16 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/14 14:37:04 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,12 @@ int			ft_type_d_i(int n)
 		else
 			j = ft_size(n);
 		while (++i < list.prec[0] - j)
-			write(1, " ", 1);
+		{
+			if (list.prec[1])
+				write(1, " ", 1);
+			else
+				write(1, "0", 1);
+		}
 	}
 	else if (list.flags[0] == 4)
 	{
