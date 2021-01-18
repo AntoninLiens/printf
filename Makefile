@@ -6,7 +6,7 @@
 #    By: aliens <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 16:44:51 by aliens            #+#    #+#              #
-#    Updated: 2021/01/08 16:50:55 by aliens           ###   ########.fr        #
+#    Updated: 2021/01/18 15:18:41 by aliens           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,7 @@ SRCS	=	ft_printf.c\
 			ft_type_p.c\
 			ft_type_u.c\
 			ft_type_d_i.c\
-			ft_type_lowerx.c\
-			ft_type_upperx.c
+			ft_type_x.c\
 
 OBJS	=	$(SRCS:.c=.o)
 

@@ -1,62 +1,82 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type_d_i.c                                      :+:      :+:    :+:   */
+/*   ft_type_x.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/08 16:43:35 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/18 15:01:02 by aliens           ###   ########.fr       */
+/*   Created: 2021/01/18 15:18:03 by aliens            #+#    #+#             */
+/*   Updated: 2021/01/18 15:30:59 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./printf.h"
 
-static int	ft_size(int n)
+static int	ft_size(unsigned int n)
 {
-	if (n < 10)
+	if (n < 16)
 		return (1);
-	return (1 + ft_size(n / 10));
+	return (1 + ft_size(n / 16));
 }
 
-int			ft_type_d_i_dot(int n)
+int			ft_flags_before(int size, int i)
 {
-	int	i;
-	int	j;
-	int	size;
+	if (list.flags[0] == 2)
+		while (++i < list.prec[0] - size)
+			write(1, " ", 1);
+	else if (list.flags[0] == 4)
+		while (++i < list.prec[0] - size)
+			write(1, "0", 1);
+	return (i);
+}
+
+int			ft_type_x_dot(unsigned int n, char *base, char *res)
+{
+	int		u_size;
+	int		size;
+	int		i;
+	int		j;
 
 	i = -1;
 	j = -1;
 	size = list.prec[1] < ft_size(n) ? ft_size(n) : list.prec[1];
-	if (list.flags[0] == 2)
-		while (++i < list.prec[0] - size)
-			write(1, " ", 1);
-	else if (list.flags[0] == 3)
-		while (++i < list.prec[0] - size)
-			write(1, "0", 1);
+	i = ft_flags_before(size, i);
 	while (++j < size - ft_size(n))
 		write(1, "0", 1);
-	ft_putnbr_fd(n, 1);
+	u_size = ft_size(n);
+	while (u_size--)
+	{
+		res[i] = base[n % 16];
+		n /= 16;
+	}
+	ft_putstr_fd(res, 1);
+	free(res);
 	if (list.flags[0] == 1)
 		while (++i < list.prec[0] - size)
 			write(1, " ", 1);
 	return (size + i);
 }
 
-int			ft_type_d_i(int n)
+int			ft_type_x(unsigned int n, char *base)
 {
-	int i;
+	char	*res;
+	int		size;
+	int		i;
 
 	i = 0;
+	size = ft_size(n);
+	if (!(res = ft_calloc(sizeof(char), size + 1)))
+		return (0);
 	if (list.flags[1])
-		return (ft_type_d_i_dot(n));
-	else if (list.flags[0] == 2 || list.flags[0] == 4)
-		while (i++ < list.prec[0] - ft_size(n))
-			write(1, " ", 1);
-	else if (list.flags[0] == 3)
-		while (i++ < list.prec[0] - ft_size(n))
-			write(1, "0", 1);
-	ft_putnbr_fd(n, 1);
+		return (ft_type_x_dot(n, base, res));
+	i = ft_flags_before(size, i);
+	while (size--)
+	{
+		res[i] = base[n % 16];
+		n /= 16;
+	}
+	ft_putstr_fd(res, 1);
+	free(res);
 	if (list.flags[0] == 1)
 		while (i++ < list.prec[0] - ft_size(n))
 			write(1, " ", 1);

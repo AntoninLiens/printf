@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 14:32:15 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/08 16:41:02 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/18 15:18:29 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ void			ft_get_prec(const char **format, int i);
 int				ft_type_c(int c);
 int				ft_type_d_i(int i);
 int				ft_type_s(char *str);
-int				ft_type_lowerx(unsigned int n);
-int				ft_type_upperx(unsigned int n);
+int				ft_type_x(unsigned int n, char *base);
 int				ft_type_p(void *ptr);
 int				ft_type_u(int n);
 

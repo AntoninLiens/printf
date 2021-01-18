@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:14:53 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/13 15:37:49 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/18 15:16:19 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int		ft_get_type(const char **format)
 	else if (**format == 'u')
 		return (ft_type_u(va_arg(list.arg, int)));
 	else if (**format == 'x')
-		return (ft_type_lowerx(va_arg(list.arg, unsigned int)));
+		return (ft_type_x(va_arg(list.arg, unsigned int, "0123456789abcdef")));
 	else if (**format == 'X')
-		return (ft_type_upperx(va_arg(list.arg, unsigned int)));
+		return (ft_type_x(va_arg(list.arg, unsigned int, "0123456789ABCDEF")));
 	else if (**format == '%')
 	{
 		ft_putchar_fd('%', 1);
