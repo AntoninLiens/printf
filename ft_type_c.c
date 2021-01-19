@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:43:09 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/18 14:26:18 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/19 14:37:18 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_type_c(int c)
 	else if (list.flags[0] == 4)
 		while (i++ < list.prec[0] - 1)
 			write(1, " ", 1);
-	ft_putchar_fd((char)c, 1);
+	ft_putchar_fd(c, 1);
 	if (list.flags[0] == 1)
 		while (i++ < list.prec[0] - 1)
 			write(1, " ", 1);
