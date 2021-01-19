@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:14:53 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/19 14:27:26 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/19 17:37:25 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_get_type(const char **format)
 	else if (**format == 'p')
 		return (ft_type_p(va_arg(list.arg, void *)));
 	else if (**format == 'd' || **format == 'i')
-		return (ft_type_d_i(va_arg(list.arg, int)));
+		return (ft_type_d_i(va_arg(list.arg, int), 0));
 	else if (**format == 'u')
 		return (ft_type_u(va_arg(list.arg, int)));
 	else if (**format == 'x')
