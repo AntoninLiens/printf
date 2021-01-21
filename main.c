@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 15:22:25 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/21 15:12:04 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/21 17:26:01 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 int	main(void)
 {
-//	void *ptr;
+	void *ptr;
 
-//	if (!(ptr = ft_calloc(sizeof(char), 11)))
-//		return (0);
+	if (!(ptr = ft_calloc(sizeof(char), 11)))
+		return (0);
 /*	ft_printf("printf d : %d\n", printf("%d\n", 0));
 	ft_printf("ft_printf d : %d\n", ft_printf("%d\n", 0));
 	ft_printf("printf c : %d\n", printf("%c\n", 'a'));
@@ -47,8 +47,8 @@ int	main(void)
 	printf("1 : %d\n", list.prec[0]);
 	printf("2 : %d\n", list.prec[1]);*/
 //	ft_printf("%d\n", ft_printf("%-10p|\n", ptr));
-	printf("%d\n", ft_printf("%.6d|\n", 19));
-	printf("%d\n", printf("%.6d|\n", 19));
-//	free(ptr);
+	printf("%d\n", ft_printf("%019.15p|\n", ptr));
+	printf("%d\n", printf("%019.15p|\n", ptr));
+	free(ptr);
 	return (0);
 }

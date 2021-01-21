@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 14:32:15 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/21 14:42:44 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/21 17:11:10 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int				ft_type_c(int c);
 int				ft_type_d_i(int i, int neg);
 int				ft_type_s(char *str);
 int				ft_type_x(unsigned int n, char *base);
-int				ft_type_p(void *ptr);
+int				ft_type_p(void *ptr, char *hex);
 int				ft_type_u(int n);
 
 int				ft_p_atoi(const char *str);
