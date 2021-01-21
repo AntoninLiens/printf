@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/22 16:27:17 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/13 15:57:13 by aliens           ###   ########.fr       */
+/*   Created: 2021/01/21 13:55:36 by aliens            #+#    #+#             */
+/*   Updated: 2021/01/21 14:40:33 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./printf.h"
 
-int	ft_atoi(const char *str)
+int	ft_p_atoi(const char *str)
 {
 	unsigned long long int	num2;
 	unsigned long long int	num;
@@ -36,4 +36,32 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (num * sign);
+}
+
+int	ft_p_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	char *ptr;
+
+	if (!s || n < 0)
+		return ;
+	ptr = (char *)s;
+	if (n == 0)
+		return ;
+	while (n--)
+		ptr[n] = 0;
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*dst;
+
+	if (!(dst = malloc(sizeof(char) * (size * count))))
+		return (NULL);
+	ft_bzero(dst, (count * size));
+	return (dst);
 }

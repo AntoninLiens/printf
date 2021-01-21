@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_size.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/27 13:00:16 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/28 18:19:31 by aliens           ###   ########.fr       */
+/*   Created: 2021/01/21 14:01:22 by aliens            #+#    #+#             */
+/*   Updated: 2021/01/21 14:43:05 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./printf.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+size_t	ft_p_strlen(const char *str)
 {
-	t_list	*lst2;
+	size_t	i;
 
-	if (!lst)
-		return ;
-	if (!*lst)
-	{
-		*lst = new;
-		return ;
-	}
-	lst2 = ft_lstlast(*lst);
-	lst2->next = new;
+	if (!str)
+		return (0);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+int		ft_ten_size(unsigned int n)
+{
+	if (n < 10)
+		return (1);
+	return (1 + ft_ten_size(n / 10));
+}
+
+int		ft_sixteen_size(unsigned long n)
+{
+	if (n < 16)
+		return (1);
+	return (1 + ft_sixteen_size(n / 16));
 }

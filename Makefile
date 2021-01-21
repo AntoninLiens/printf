@@ -6,7 +6,7 @@
 #    By: aliens <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 16:44:51 by aliens            #+#    #+#              #
-#    Updated: 2021/01/18 15:18:41 by aliens           ###   ########.fr        #
+#    Updated: 2021/01/21 14:43:24 by aliens           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,9 @@ SRCS	=	ft_printf.c\
 			ft_type_u.c\
 			ft_type_d_i.c\
 			ft_type_x.c\
+			ft_printf_utils.c\
+			ft_print.c\
+			ft_size.c
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -35,11 +38,7 @@ CFLAGS	=	-Wall -Werror -Wextra
 
 RM		=	rm -f
 
-LIBFT	=	./libft
-
 $(NAME):	$(OBJS)
-			@make full -C $(LIBFT)
-			@cp libft/libft.a ./$(NAME)
 			@ar -rcs $(NAME) $(OBJS)
 			@echo "$(GREEN)libftprintf.a created$(RESET)"
 
@@ -53,12 +52,10 @@ allup:		$(NAME) clean
 
 clean:
 			@$(RM) $(OBJS)
-			@make clean -C $(LIBFT)
 			@echo "$(RED)ft_printf objects erased$(RESET)"
 
 fclean:		clean
 			@$(RM) $(NAME)
-			@make fclean -C $(LIBFT)
 			@echo "$(RED)libftprintf.a erased$(RESET)"
 
 re:			fclean all

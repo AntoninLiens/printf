@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:44:20 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/08 16:44:40 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/21 14:31:47 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int		ft_type_s(char *str)
 {
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
+	ft_putstr(str);
+	return (ft_p_strlen(str));
 }

@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 12:44:53 by aliens            #+#    #+#             */
-/*   Updated: 2020/12/01 18:03:18 by aliens           ###   ########.fr       */
+/*   Created: 2021/01/21 14:37:10 by aliens            #+#    #+#             */
+/*   Updated: 2021/01/21 14:41:35 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./printf.h"
 
-int	ft_isalnum(int c)
+void	ft_putchar(char c)
 {
-	return (ft_isdigit(c) || ft_isalpha(c));
+	write(1, &c, 1);
+}
+
+void	ft_putstr(char *s)
+{
+	if (s)
+		write(1, s, ft_p_strlen(s));
+}
+
+void		ft_putnbr_ui(unsigned int n)
+{
+	if (n > 9)
+		ft_putnbr_ui(n / 10);
+	ft_putchar('0' + n % 10);
 }

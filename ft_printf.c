@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 13:05:34 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/08 16:25:44 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/21 14:06:42 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		ft_printf(const char *format, ...)
 		}
 		else
 		{
-			ft_putchar_fd(*format, 1);
+			ft_putchar(*format);
 			sum++;
 		}
 		format++;

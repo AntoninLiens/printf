@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 14:32:15 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/19 17:39:28 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/21 14:42:44 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 # define PRINTF_H
 
 # include <stdarg.h>
+# include <stdlib.h>
+# include <limits.h>
+# include <unistd.h>
 # include <stdio.h>
-# include "libft/libft.h"
 
 typedef struct	s_ft_printf
 {
@@ -40,5 +42,18 @@ int				ft_type_s(char *str);
 int				ft_type_x(unsigned int n, char *base);
 int				ft_type_p(void *ptr);
 int				ft_type_u(int n);
+
+int				ft_p_atoi(const char *str);
+int				ft_p_isdigit(int c);
+void			ft_bzero(void *s, size_t n);
+void			*ft_calloc(size_t count, size_t size);
+
+void			ft_putchar(char c);
+void			ft_putstr(char *s);
+void			ft_putnbr_ui(unsigned int n);
+
+size_t			ft_p_strlen(const char *str);
+int				ft_ten_size(unsigned int n);
+int				ft_sixteen_size(unsigned long n);
 
 #endif
