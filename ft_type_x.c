@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 15:18:03 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/21 14:14:43 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/21 18:23:03 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			ft_type_x_dot(unsigned int n, char *base, char *res)
 
 	i = 0;
 	j = 0;
-	size = list.prec[1] < ft_sixteen_size(n) ? ft_sixteen_size(n) : list.prec[1];
+	size = list.prec[1] < ft_hex_size(n) ? ft_hex_size(n) : list.prec[1];
 	x_i = size;
 	i = ft_flags_before(size, i);
 	while (j++ < size - x_i)
@@ -66,7 +66,7 @@ int			ft_type_x(unsigned int n, char *base)
 	int		x_i;
 
 	i = 0;
-	size = ft_sixteen_size(n);
+	size = ft_hex_size(n);
 	x_i = size;
 	if (!(res = ft_calloc(sizeof(char), size + 1)))
 		return (0);
@@ -83,5 +83,5 @@ int			ft_type_x(unsigned int n, char *base)
 	if (list.flags[0] == 1)
 		while (i++ < list.prec[0] - size)
 			write(1, " ", 1);
-	return (i ? ft_sixteen_size(n) + i : ft_sixteen_size(n) + 1);
+	return (i ? ft_hex_size(n) + i : ft_hex_size(n) + 1);
 }

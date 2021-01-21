@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 14:32:15 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/21 17:11:10 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/21 18:23:26 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ void			ft_putnbr_ui(unsigned int n);
 
 size_t			ft_p_strlen(const char *str);
 int				ft_ten_size(unsigned int n);
-int				ft_sixteen_size(unsigned long n);
+int				ft_hex_size(unsigned long n);
 
 #endif

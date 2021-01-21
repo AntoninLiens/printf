@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 14:01:22 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/21 14:43:05 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/21 18:24:30 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int		ft_ten_size(unsigned int n)
 	return (1 + ft_ten_size(n / 10));
 }
 
-int		ft_sixteen_size(unsigned long n)
+int		ft_hex_size(unsigned long n)
 {
 	if (n < 16)
 		return (1);
-	return (1 + ft_sixteen_size(n / 16));
+	return (1 + ft_hex_size(n / 16));
 }

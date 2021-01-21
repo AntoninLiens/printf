@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 13:55:36 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/21 14:40:33 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/21 17:55:04 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*dst;
 
-	if (!(dst = malloc(sizeof(char) * (size * count))))
+	if (!(dst = malloc(sizeof(void) * size * count)))
 		return (NULL);
-	ft_bzero(dst, (count * size));
+	ft_bzero(dst, count * size);
 	return (dst);
 }

@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:44:06 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/21 17:41:18 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/21 18:23:52 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int			ft_type_p_dot(char *dst, char *hex, unsigned long ptr2)
 
 	i = -1;
 	j = -1;
-	size = list.prec[1] < ft_sixteen_size(ptr2) ? ft_sixteen_size(ptr2) : list.prec[1];
-	p_i = size;
+	size = list.prec[1] < ft_hex_size(ptr2) ? ft_hex_size(ptr2) : list.prec[1];
+	p_i = ft_hex_size(ptr2);
 	if (list.flags[0] == 4 || list.flags[0] == 2)
 		while (++i < list.prec[0] - size - 2)
 			write(1, " ", 1);
 	ft_putstr("0x");
-	while (++j < list.prec[1] - size)
+	while (++j < list.prec[1] - p_i)
 		write(1, "0", 1);
 	while (p_i--)
 	{
@@ -52,7 +52,7 @@ int			ft_type_p(void *ptr, char *hex)
 
 	i = 0;
 	ptr2 = (unsigned long)ptr;
-	size = ft_sixteen_size(ptr2);
+	size = ft_hex_size(ptr2);
 	p_i = size;
 	if (!(dst = (char *)ft_calloc(sizeof(char), size + 1)))
 		return (0);
