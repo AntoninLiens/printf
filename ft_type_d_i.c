@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:43:35 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/21 14:09:31 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/21 15:11:51 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,25 @@ int				ft_type_d_i_dot(int n, int neg)
 	return (size + i);
 }
 
-static int		ft_flags_before(unsigned int nbr, int neg)
+static int		ft_flags_before(int neg, int i, int size)
 {
-	int i;
-
-	i = 0;
 	if (list.flags[0] == 4)
-		while (i++ < list.prec[0] - ft_ten_size(nbr))
+		while (i++ < list.prec[0] - size)
 			write(1, " ", 1);
 	if (neg)
 		write(1, "-", 1);
 	if (list.flags[0] == 2)
-		while (i++ < list.prec[0] - ft_ten_size(nbr))
+		while (i++ < list.prec[0] - size)
 			write(1, "0", 1);
 	else if (list.flags[0] == 3)
-		while (i++ < list.prec[0] - ft_ten_size(nbr))
-			write(1, "0", 1);
+	{
+		if (neg)
+			while (i++ < list.prec[0] - size + 1)
+				write(1, "0", 1);
+		else
+			while (i++ < list.prec[0] - size)
+				write(1, "0", 1);
+	}
 	return (i);
 }
 
@@ -62,6 +65,7 @@ int				ft_type_d_i(int n, int neg)
 {
 	int				i;
 	unsigned int	nbr;
+	int				size;
 
 	i = 0;
 	if (n < 0)
@@ -72,12 +76,13 @@ int				ft_type_d_i(int n, int neg)
 	}
 	else
 		nbr = n;
+	size = ft_ten_size(nbr);
 	if (list.flags[1])
 		return (ft_type_d_i_dot(nbr, neg));
-	ft_flags_before(nbr, neg);
+	i = ft_flags_before(neg, i, size);
 	ft_putnbr_ui(nbr);
 	if (list.flags[0] == 1)
-		while (i++ < list.prec[0] - ft_ten_size(nbr))
+		while (i++ < list.prec[0] - size)
 			write(1, " ", 1);
-	return (i ? ft_ten_size(n) + i - 1 : ft_ten_size(nbr));
+	return (i ? size + i - 1 : size);
 }
