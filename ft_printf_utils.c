@@ -6,13 +6,13 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 13:55:36 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/21 17:55:04 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/21 18:52:07 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./printf.h"
 
-int	ft_p_atoi(const char *str)
+int		ft_p_atoi(const char *str)
 {
 	unsigned long long int	num2;
 	unsigned long long int	num;
@@ -38,7 +38,7 @@ int	ft_p_atoi(const char *str)
 	return (num * sign);
 }
 
-int	ft_p_isdigit(int c)
+int		ft_p_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
