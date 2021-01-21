@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 15:18:03 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/18 15:30:59 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/21 12:46:20 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ static int	ft_size(unsigned int n)
 	return (1 + ft_size(n / 16));
 }
 
-int			ft_flags_before(int size, int i)
+int			ft_flags_before(int size)
 {
+	int	i;
+
+	i = 0;
 	if (list.flags[0] == 2)
 		while (++i < list.prec[0] - size)
 			write(1, " ", 1);
@@ -40,13 +43,13 @@ int			ft_type_x_dot(unsigned int n, char *base, char *res)
 	i = -1;
 	j = -1;
 	size = list.prec[1] < ft_size(n) ? ft_size(n) : list.prec[1];
-	i = ft_flags_before(size, i);
+	i += ft_flags_before(size);
 	while (++j < size - ft_size(n))
 		write(1, "0", 1);
 	u_size = ft_size(n);
 	while (u_size--)
 	{
-		res[i] = base[n % 16];
+		res[u_size] = base[n % 16];
 		n /= 16;
 	}
 	ft_putstr_fd(res, 1);
@@ -69,10 +72,10 @@ int			ft_type_x(unsigned int n, char *base)
 		return (0);
 	if (list.flags[1])
 		return (ft_type_x_dot(n, base, res));
-	i = ft_flags_before(size, i);
+	i += ft_flags_before(size);
 	while (size--)
 	{
-		res[i] = base[n % 16];
+		res[size] = base[n % 16];
 		n /= 16;
 	}
 	ft_putstr_fd(res, 1);
@@ -80,5 +83,5 @@ int			ft_type_x(unsigned int n, char *base)
 	if (list.flags[0] == 1)
 		while (i++ < list.prec[0] - ft_size(n))
 			write(1, " ", 1);
-	return (i ? ft_size(n) + i - 1 : ft_size(n));
+	return (i ? ft_size(n) + i - 1 : ft_size(n) + 1);
 }

@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 15:22:25 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/19 17:26:58 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/21 12:44:30 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int	main(void)
 	printf("1 : %d\n", list.prec[0]);
 	printf("2 : %d\n", list.prec[1]);*/
 //	ft_printf("%d\n", ft_printf("%-10p|\n", ptr));
-	printf("%d\n", ft_printf("%06d|\n", INT_MIN));
-	printf("%d\n", printf("%06d|\n", INT_MIN));
+	printf("%d\n", ft_printf("%04x|\n", 19));
+	printf("%d\n", printf("%04x|\n", 19));
 //	free(ptr);
 	return (0);
 }
