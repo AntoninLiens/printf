@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:14:53 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/21 17:03:14 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/24 17:17:54 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,8 @@ int		ft_get_type(const char **format)
 	else if (**format == 'X')
 		return (ft_type_x(va_arg(list.arg, unsigned int), "0123456789ABCDEF"));
 	else if (**format == '%')
-	{
-		ft_putchar('%');
-		return (1);
-	}
+		return (ft_type_percent());
 	return (0);
-}
-
-void	ft_get_prec(const char **format, int i)
-{
-	if (**format == '*')
-	{
-		list.prec[i] = va_arg(list.arg, int);
-		(*format)++;
-	}
-	else if (ft_p_isdigit((int)**format))
-	{
-		list.prec[i] = ft_p_atoi(*format);
-		while (ft_p_isdigit((int)**format))
-			(*format)++;
-	}
 }
 
 void	ft_get_flag(const char **format)
@@ -66,13 +48,12 @@ void	ft_get_flag(const char **format)
 			list.flags[i] = 3;
 		else if (**format == '*' || ft_p_isdigit((int)**format))
 			list.flags[i] = 4;
-		if (list.flags[i] && !ft_p_isdigit((int)**format))
-			(*format)++;
-		if (list.flags[i] == 1 || list.flags[i] == 2)
-			while (**format == *(*format - 1))
+		if (list.flags[i])
+		{
+			if (list.flags[i] != 4)
 				(*format)++;
-		if (ft_p_isdigit((int)**format) || **format == '*')
-			ft_get_prec(format, i);
+			list.prec[i] = ft_p_atoi(format);
+		}
 	}
 	return ;
 }

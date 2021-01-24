@@ -6,41 +6,46 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 13:55:36 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/21 18:52:07 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/24 17:17:37 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./printf.h"
 
-int		ft_p_atoi(const char *str)
-{
-	unsigned long long int	num2;
-	unsigned long long int	num;
-	int						i;
-	int						sign;
-
-	i = 0;
-	num = 0;
-	sign = 1;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-		if (str[i++] == '-')
-			sign *= -1;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		num2 = num;
-		num = num * 10 + (str[i] - '0');
-		if (num >= LLONG_MAX || num < num2)
-			return (sign == 1 ? -1 : 0);
-		i++;
-	}
-	return (num * sign);
-}
-
 int		ft_p_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
+}
+
+int		ft_p_atoi(const char **str)
+{
+	unsigned long long int	num2;
+	unsigned long long int	num;
+	int						sign;
+
+	num = 0;
+	sign = 1;
+	while (*(*str) == '-' || *(*str) == '0')
+	{
+		if (*(*str) == '-')
+			sign = -1;
+		(*str)++;
+	}
+	if (*(*str) == '*')
+	{
+		num = va_arg(list.arg, int);
+		(*str)++;
+	}
+	else
+		while (*(*str) >= '0' && *(*str) <= '9')
+		{
+			num2 = num;
+			num = num * 10 + (*(*str) - '0');
+			if (num >= LLONG_MAX || num < num2)
+				return (sign == 1 ? -1 : 0);
+			(*str)++;
+		}
+	return (num * sign);
 }
 
 void	ft_bzero(void *s, size_t n)
