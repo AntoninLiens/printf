@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 13:05:34 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/24 17:32:48 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/26 19:13:13 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,25 @@ void	ft_reset_list(void)
 
 void	ft_ajust(void)
 {
-	if (list.flags[0] == 2 && list.prec[0] < 0)
+	if (list.flags[0] == 3 && list.prec[0] < 0)
+	{
+	   list.flags[0] = 0;
+	   list.prec[0] = 0;
+	}
+	else if (list.flags[0] == 2 && list.prec[0] < 0)
 	{
 		list.flags[0] = 1;
 		list.prec[0] *= -1;
+	}
+	else if (list.prec[0] < 0)
+	{
+		list.flags[0] = 1;
+		list.prec[0] *= -1;
+	}
+	if (list.flags[1] && list.prec[1] < 0)
+	{
+		list.flags[1] = 0;
+		list.prec[1] = 0;
 	}
 }
 
@@ -35,9 +50,9 @@ int		ft_printf(const char *format, ...)
 
 	sum = 0;
 	va_start(list.arg, format);
-	ft_reset_list();
 	while (*format)
 	{
+		ft_reset_list();
 		if (*format == '%')
 		{
 			format++;

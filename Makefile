@@ -6,7 +6,7 @@
 #    By: aliens <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 16:44:51 by aliens            #+#    #+#              #
-#    Updated: 2021/01/24 15:35:30 by aliens           ###   ########.fr        #
+#    Updated: 2021/01/26 19:10:18 by aliens           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ SRCS	=	ft_printf.c\
 			ft_type_u.c\
 			ft_type_d_i.c\
 			ft_type_x.c\
-			ft_type_percent.c\
 			ft_printf_utils.c\
 			ft_print.c\
 			ft_size.c

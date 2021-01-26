@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:14:53 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/24 17:17:54 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/26 19:09:53 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_get_type(const char **format)
 	else if (**format == 'X')
 		return (ft_type_x(va_arg(list.arg, unsigned int), "0123456789ABCDEF"));
 	else if (**format == '%')
-		return (ft_type_percent());
+		return (ft_type_c((int)'%'));
 	return (0);
 }
 

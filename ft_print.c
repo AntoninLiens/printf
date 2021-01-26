@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 14:37:10 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/21 18:51:53 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/26 16:17:50 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_putchar(char c)
 void	ft_putstr(char *s)
 {
 	if (s)
-		write(1, s, ft_p_strlen(s));
+		write(1, s, ft_strlen(s));
 }
 
 void	ft_putnbr_ui(unsigned int n)

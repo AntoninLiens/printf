@@ -6,13 +6,13 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 14:01:22 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/21 18:24:30 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/26 16:17:07 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./printf.h"
 
-size_t	ft_p_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
