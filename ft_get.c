@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:14:53 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/26 19:09:53 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/29 14:43:31 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int		ft_get_type(const char **format)
 {
-	if (**format == 'c')
+	if (**format == 0)
+		list.error = 1;
+	else if (**format == 'c')
 		return (ft_type_c(va_arg(list.arg, int)));
 	else if (**format == 's')
 		return (ft_type_s(va_arg(list.arg, char *)));

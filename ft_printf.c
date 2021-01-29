@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 13:05:34 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/26 19:13:13 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/29 14:44:27 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_reset_list(void)
 	list.flags[1] = 0;
 	list.prec[0] = 0;
 	list.prec[1] = 0;
+	list.error = 0;
 }
 
 void	ft_ajust(void)
@@ -65,6 +66,8 @@ int		ft_printf(const char *format, ...)
 			ft_putchar(*format);
 			sum++;
 		}
+		if (list.error)
+			return (-1);
 		format++;
 	}
 	va_end(list.arg);
