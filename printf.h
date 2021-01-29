@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 14:32:15 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/29 14:40:47 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/29 17:12:36 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void			ft_ajust(void);
 int				ft_type_c(int c);
 int				ft_type_d_i(int i, int neg);
 int				ft_type_s(char *str);
-int				ft_type_x(unsigned int n, char *base);
+int				ft_type_x(unsigned int n, int i, char *base);
 int				ft_type_p(void *ptr, char *hex);
 int				ft_type_u(int n);
 int				ft_type_percent(void);
 
-int				ft_p_atoi(const char **str);
+int				ft_p_atoi(const char **str, int sign);
 int				ft_p_isdigit(int c);
 void			ft_bzero(void *s, size_t n);
 void			*ft_calloc(size_t count, size_t size);

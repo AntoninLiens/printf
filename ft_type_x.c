@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 15:18:03 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/26 18:40:22 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/29 16:23:04 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,13 @@ int			ft_type_x_dot(unsigned int n, char *base, char *res)
 	return (size + --i);
 }
 
-int			ft_type_x(unsigned int n, char *base)
+int			ft_type_x(unsigned int n, int i, char *base)
 {
 	char	*res;
 	int		size;
-	int		i;
 	int		x_i;
 	int		dot;
 
-	i = 0;
 	size = ft_hex_size(n);
 	x_i = size;
 	if (!(res = (char *)ft_calloc(sizeof(char), size + 1)))
@@ -79,8 +77,8 @@ int			ft_type_x(unsigned int n, char *base)
 	i = ft_flags_before(size, i, dot);
 	while (x_i--)
 	{
-			res[x_i] = base[n % 16];
-			n /= 16;
+		res[x_i] = base[n % 16];
+		n /= 16;
 	}
 	dot ? size-- : ft_putstr(res);
 	free(res);

@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 13:05:34 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/29 14:44:27 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/29 15:57:31 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	ft_ajust(void)
 {
 	if (list.flags[0] == 3 && list.prec[0] < 0)
 	{
-	   list.flags[0] = 0;
-	   list.prec[0] = 0;
+		list.flags[0] = 0;
+		list.prec[0] = 0;
 	}
 	else if (list.flags[0] == 2 && list.prec[0] < 0)
 	{

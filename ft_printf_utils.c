@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 13:55:36 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/26 15:55:41 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/29 15:56:45 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,12 @@ int		ft_p_isdigit(int c)
 	return (c >= '0' && c <= '9');
 }
 
-int		ft_p_atoi(const char **str)
+int		ft_p_atoi(const char **str, int sign)
 {
 	unsigned long long int	num2;
 	unsigned long long int	num;
-	int						sign;
 
 	num = 0;
-	sign = 1;
 	while (*(*str) == '-' || *(*str) == '0')
 	{
 		if (*(*str) == '-')

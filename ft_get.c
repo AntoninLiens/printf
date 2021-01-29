@@ -6,7 +6,7 @@
 /*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:14:53 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/29 14:43:31 by aliens           ###   ########.fr       */
+/*   Updated: 2021/01/29 17:14:28 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ int		ft_get_type(const char **format)
 	else if (**format == 'u')
 		return (ft_type_u(va_arg(list.arg, int)));
 	else if (**format == 'x')
-		return (ft_type_x(va_arg(list.arg, unsigned int), "0123456789abcdef"));
+		return (ft_type_x(va_arg(list.arg, unsigned int), 0,
+					"0123456789abcdef"));
 	else if (**format == 'X')
-		return (ft_type_x(va_arg(list.arg, unsigned int), "0123456789ABCDEF"));
+		return (ft_type_x(va_arg(list.arg, unsigned int), 0,
+					"0123456789ABCDEF"));
 	else if (**format == '%')
 		return (ft_type_c((int)'%'));
 	return (0);
@@ -54,7 +56,7 @@ void	ft_get_flag(const char **format)
 		{
 			if (list.flags[i] != 4)
 				(*format)++;
-			list.prec[i] = ft_p_atoi(format);
+			list.prec[i] = ft_p_atoi(format, 1);
 		}
 	}
 	return ;
