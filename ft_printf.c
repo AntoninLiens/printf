@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 13:05:34 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/29 15:57:31 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/01 13:50:41 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,34 @@
 
 void	ft_reset_list(void)
 {
-	list.flags[0] = 0;
-	list.flags[1] = 0;
-	list.prec[0] = 0;
-	list.prec[1] = 0;
-	list.error = 0;
+	g_plist.flags[0] = 0;
+	g_plist.flags[1] = 0;
+	g_plist.prec[0] = 0;
+	g_plist.prec[1] = 0;
+	g_plist.error = 0;
 }
 
 void	ft_ajust(void)
 {
-	if (list.flags[0] == 3 && list.prec[0] < 0)
+	if (g_plist.flags[0] == 3 && g_plist.prec[0] < 0)
 	{
-		list.flags[0] = 0;
-		list.prec[0] = 0;
+		g_plist.flags[0] = 0;
+		g_plist.prec[0] = 0;
 	}
-	else if (list.flags[0] == 2 && list.prec[0] < 0)
+	else if (g_plist.flags[0] == 2 && g_plist.prec[0] < 0)
 	{
-		list.flags[0] = 1;
-		list.prec[0] *= -1;
+		g_plist.flags[0] = 1;
+		g_plist.prec[0] *= -1;
 	}
-	else if (list.prec[0] < 0)
+	else if (g_plist.prec[0] < 0)
 	{
-		list.flags[0] = 1;
-		list.prec[0] *= -1;
+		g_plist.flags[0] = 1;
+		g_plist.prec[0] *= -1;
 	}
-	if (list.flags[1] && list.prec[1] < 0)
+	if (g_plist.flags[1] && g_plist.prec[1] < 0)
 	{
-		list.flags[1] = 0;
-		list.prec[1] = 0;
+		g_plist.flags[1] = 0;
+		g_plist.prec[1] = 0;
 	}
 }
 
@@ -50,7 +50,7 @@ int		ft_printf(const char *format, ...)
 	int		sum;
 
 	sum = 0;
-	va_start(list.arg, format);
+	va_start(g_plist.arg, format);
 	while (*format)
 	{
 		ft_reset_list();
@@ -66,10 +66,10 @@ int		ft_printf(const char *format, ...)
 			ft_putchar(*format);
 			sum++;
 		}
-		if (list.error)
+		if (g_plist.error)
 			return (-1);
 		format++;
 	}
-	va_end(list.arg);
+	va_end(g_plist.arg);
 	return (sum);
 }

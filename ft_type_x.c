@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_type_x.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 15:18:03 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/29 16:23:04 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/01 13:56:33 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 int			ft_flags_before(int size, int i, int dot)
 {
-	if (list.flags[0] == 2)
-		while (-dot + i++ < list.prec[0] - size)
+	if (g_plist.flags[0] == 2)
+		while (-dot + i++ < g_plist.prec[0] - size)
 		{
-			if (list.flags[1])
+			if (g_plist.flags[1])
 				write(1, " ", 1);
 			else
 				write(1, "0", 1);
 		}
-	else if (list.flags[0] == 3)
-		while (-dot + i++ < list.prec[0] - size)
+	else if (g_plist.flags[0] == 3)
+		while (-dot + i++ < g_plist.prec[0] - size)
 			write(1, "0", 1);
-	else if (list.flags[0] == 4)
-		while (-dot + i++ < list.prec[0] - size)
+	else if (g_plist.flags[0] == 4)
+		while (-dot + i++ < g_plist.prec[0] - size)
 			write(1, " ", 1);
 	return (i);
 }
@@ -41,9 +41,9 @@ int			ft_type_x_dot(unsigned int n, char *base, char *res)
 
 	i = 0;
 	j = 0;
-	size = list.prec[1] < ft_hex_size(n) ? ft_hex_size(n) : list.prec[1];
+	size = g_plist.prec[1] < ft_hex_size(n) ? ft_hex_size(n) : g_plist.prec[1];
 	x_i = ft_hex_size(n);
-	dot = !n && !list.prec[1] ? 1 : 0;
+	dot = !n && !g_plist.prec[1] ? 1 : 0;
 	i = ft_flags_before(size, i, dot);
 	while (j++ < size - x_i)
 		write(1, "0", 1);
@@ -54,8 +54,8 @@ int			ft_type_x_dot(unsigned int n, char *base, char *res)
 	}
 	dot ? size-- : ft_putstr(res);
 	free(res);
-	if (list.flags[0] == 1)
-		while (i++ < list.prec[0] - size)
+	if (g_plist.flags[0] == 1)
+		while (i++ < g_plist.prec[0] - size)
 			write(1, " ", 1);
 	return (size + --i);
 }
@@ -71,9 +71,9 @@ int			ft_type_x(unsigned int n, int i, char *base)
 	x_i = size;
 	if (!(res = (char *)ft_calloc(sizeof(char), size + 1)))
 		return (0);
-	if (list.flags[1])
+	if (g_plist.flags[1])
 		return (ft_type_x_dot(n, base, res));
-	dot = !n && list.flags[0] == 3 && !list.prec[0] ? 1 : 0;
+	dot = !n && g_plist.flags[0] == 3 && !g_plist.prec[0] ? 1 : 0;
 	i = ft_flags_before(size, i, dot);
 	while (x_i--)
 	{
@@ -82,8 +82,8 @@ int			ft_type_x(unsigned int n, int i, char *base)
 	}
 	dot ? size-- : ft_putstr(res);
 	free(res);
-	if (list.flags[0] == 1)
-		while (i++ < list.prec[0] - size)
+	if (g_plist.flags[0] == 1)
+		while (i++ < g_plist.prec[0] - size)
 			write(1, " ", 1);
 	return (i ? size + --i : size);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 13:55:36 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/29 15:56:45 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/01 13:58:08 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		ft_p_atoi(const char **str, int sign)
 	}
 	if (*(*str) == '*')
 	{
-		num = va_arg(list.arg, int);
+		num = va_arg(g_plist.arg, int);
 		(*str)++;
 	}
 	else

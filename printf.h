@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aliens <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 14:32:15 by aliens            #+#    #+#             */
-/*   Updated: 2021/01/29 17:12:36 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/01 13:56:45 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@
 # include <unistd.h>
 # include <stdio.h>
 
-typedef struct	s_ft_printf
+typedef struct	s_plist
 {
 	va_list		arg;
 	int			flags[2];
 	int			prec[2];
 	int			error;
-}				p_list;
+}				t_plist;
 
-p_list			list;
+t_plist			g_plist;
 
 void			ft_reset_list(void);
 
