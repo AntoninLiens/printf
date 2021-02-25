@@ -6,11 +6,11 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/01 13:47:26 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/01 13:49:41 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/25 16:02:26 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./printf.h"
+#include "./ft_printf.h"
 
 int		ft_get_type(const char **format)
 {

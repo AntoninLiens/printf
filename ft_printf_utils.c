@@ -6,11 +6,11 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 13:55:36 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/01 13:58:08 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/25 14:55:31 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./printf.h"
+#include "./ft_printf.h"
 
 int		ft_p_isdigit(int c)
 {

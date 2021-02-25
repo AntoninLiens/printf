@@ -6,11 +6,11 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 15:18:03 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/01 13:56:33 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/25 14:55:31 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./printf.h"
+#include "./ft_printf.h"
 
 int			ft_flags_before(int size, int i, int dot)
 {
